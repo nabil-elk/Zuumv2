@@ -13,6 +13,7 @@ export default function Home() {
         <title>Zuum</title>
       </Head>
       <div>
+       
       <Login/>
 
       </div>

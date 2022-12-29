@@ -72,7 +72,7 @@ function RoomList() {
       <CopyToClipboard
      text= {room.roomId}
      onCopy={() => alert("Copied")}>
-       <span>Copy</span>
+       <button className="text-white bg-blue-300 py-1 px-1 rounded-md">Click to Copy</button>
      </CopyToClipboard>
      
       <div className="px-6 pt-4 pb-2">
@@ -80,9 +80,7 @@ function RoomList() {
       </div>
      
       </div>
-        </>
-      )}
-     <div className="mt-5 flex justify-center items-center">
+      <div className="mt-5 flex justify-center items-center">
      <Link href="/room">
      <button
         className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md "
@@ -91,6 +89,10 @@ function RoomList() {
       </button>
      </Link>
      </div>
+        </>
+        
+      )}
+     
     
     </div>
     </div>

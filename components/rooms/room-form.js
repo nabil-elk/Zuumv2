@@ -126,7 +126,7 @@ function Room() {
   return (
     
   
-    <div className=" h-screen flex justify-center items-center bg-slate-100">
+    <div className="  flex justify-center items-center bg-slate-100">
     <div className=" flex flex-col gap-6 mt-8">
       <input
         type="text"
@@ -143,15 +143,7 @@ function Room() {
       </button>
     </div>
   </div>
-   
-   
-    
  
-  
-    
-  
-
-    
   );
 }
 export default Room;

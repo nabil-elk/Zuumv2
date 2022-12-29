@@ -15,9 +15,13 @@ function Login() {
   
 
   return (
+    <div>
+     
     <div className=" h-screen flex justify-center items-center bg-slate-100">
 
-    <div className=" flex flex-col gap-6 mt-8">
+    <div className=" flex flex-col gap-6 ">
+      <h1 className="justify-center text-gray-900 font-medium text-1.0625 text-3xl	mb-48 ">Welcome to Zuum</h1>
+      
     
    
     <button className="btn text-gray-900 justify-center bg-gray-200 flex p-2 rounded hover:bg-slate-200 cursor-pointer font-medium text-1.0625 hover:text-gray-800 focus:text-gray-800  flex-row flex items-center w-full" onClick={ () => signIn("google", { callbackUrl: '/list' })}>
@@ -26,6 +30,7 @@ function Login() {
         
     
     </div>
+  </div>
   </div>
    
   )
