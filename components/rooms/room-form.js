@@ -58,7 +58,8 @@ function Room() {
       return () => clearTimeout(timerx);
     }, []);
 
- 
+
+  let roomNewName = roomName.replace(/\s+/g, '').trim();
 
  
 
@@ -67,7 +68,7 @@ function Room() {
       const response = await fetch("https://api.100ms.live/v2/rooms", {
         method: "POST",
         body:JSON.stringify({
-            name: roomName,
+            name: roomNewName,
             description: 'description',
             template_id: "634d31342ddb51c99bdc7ba6",
         recording_info: {
@@ -101,29 +102,6 @@ function Room() {
       router.push("/")
     };
 
-    // save room in prisma
-    const saveRoom = async () => {
-
-      const roomId = rooms.id;
-         
-
-      const datax = await fetch("http://localhost:3000/api/rooms/room", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          roomId: data.id, 
-          name: roomName, 
-          description: "description",
-          userId:  session.user.email
-        }),
-      })
-
-    }
-
-
-   
     const handleSubmit = async (e) => {
         e.preventDefault();
         
