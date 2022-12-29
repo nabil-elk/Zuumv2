@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@100mslive/react-sdk": "^0.6.1",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.6.1",
     "eslint": "8.27.0",

@@ -1,15 +1,24 @@
 
 import { React, useState, useEffect} from "react";
-import {useSession} from "next-auth/react";
+import { useRouter } from 'next/router';
+import {useSession} from "next-auth/react"
 
 function Room() {
+  
     const [rooms, setRooms] = useState([]);
     const [tokens, setTokens] = useState([]);
     const [roomName, setRoomNames] = useState("");
-    const [roomDesc, setRoomDesc] = useState("");
-    const { data: session, status} = useSession();
+    const [counts, setCounts] = useState();
 
-  
+    
+    const { data: session, status} = useSession();
+    const router = useRouter();
+
+    useEffect(() => {
+      if (status === "unauthenticated") {
+        router.push('/');
+      }
+    }, [status]);
   
   
     const handleRoomChange = (e) => {
@@ -17,9 +26,6 @@ function Room() {
     };
   
   
-    const handleRoomDesc = (e) => {
-      setRoomDesc(e.target.value);
-    }
     // fetch mana token
     const fetchManagment = () => {
         return fetch('http://localhost:3000/api/mana')
@@ -28,9 +34,31 @@ function Room() {
    
     }
 
+    
+ const fetchUniqueRoom = () => {
+    
+  return fetch(`http://localhost:3000/api/rooms/roomId`)
+  
+  .then((res) => res.json())
+  .then((data) => setCounts(data));
+
+  
+}
+
+
     useEffect(() => {
-      fetchManagment();
+      const timerx = setTimeout(() => {
+        fetchManagment();
+      fetchUniqueRoom();
+      
+      console.log("runned")
+    
+
+      }, 1000);
+      return () => clearTimeout(timerx);
     }, []);
+
+ 
 
  
 
@@ -40,7 +68,7 @@ function Room() {
         method: "POST",
         body:JSON.stringify({
             name: roomName,
-            description: roomDesc,
+            description: 'description',
             template_id: "634d31342ddb51c99bdc7ba6",
         recording_info: {
               enabled: false,
@@ -71,7 +99,7 @@ function Room() {
         body: JSON.stringify({ 
           roomId: roomId, 
           name: roomName, 
-          description: roomDesc,
+          description: "description",
           userId:  session.user.email
         }),
       })
@@ -84,10 +112,11 @@ function Room() {
         e.preventDefault();
         
         
-        if (roomName !== "" && roomDesc !== "") {
+        if (roomName !== "") {
          
          await createRoom();
          await saveRoom();
+         
          
   
       
@@ -96,48 +125,36 @@ function Room() {
 
         }
 
-
-       
-        
-      
     
       };
 
      
-
-
-
-
-
-  
-
   return (
     
+  
+    <div className=" h-screen flex justify-center items-center bg-slate-100">
+    <div className=" flex flex-col gap-6 mt-8">
+      <input
+        type="text"
+        placeholder="Room Name"
+        value={roomName}
+        onChange={handleRoomChange}
+        className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
+      required/>
+      <button
+        className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md"
+        onClick={handleSubmit}
+      >
+        Create Room
+      </button>
+    </div>
+  </div>
    
-     <div className=" h-screen flex justify-center items-center bg-slate-400">
-       <div className=" flex flex-col gap-6 mt-8">
-         <input
-           type="text"
-           placeholder="Room Name"
-           value={roomName}
-           onChange={handleRoomChange}
-           className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
-         required/>
-           <input
-           type="text"
-           placeholder="Room Description"
-           value={roomDesc}
-           onChange={handleRoomDesc}
-           className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
-           required/>
-         <button
-           className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md"
-           onClick={handleSubmit}
-         >
-           Create Room
-         </button>
-       </div>
-     </div>
+   
+    
+ 
+  
+    
   
 
     
