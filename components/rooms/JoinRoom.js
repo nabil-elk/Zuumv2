@@ -159,14 +159,14 @@ function JoinRoom() {
 <div className=" flex flex-col gap-6 mt-8">
 <input
             type="text"
-            placeholder="Username"
+            placeholder="Insert a Name"
             value={inputValues}
             onChange={handleInputChange}
             className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
           />
         <input
             type="text"
-            placeholder="Room ID"
+            placeholder="Insert a Room ID"
             value={RoomId}
             onChange={getRoom}
             className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"

@@ -23,6 +23,7 @@ export default function App({
       <LayoutComponent>
       <Component {...pageProps} />
     </LayoutComponent>
+    
     </SessionProvider>
   )
 }

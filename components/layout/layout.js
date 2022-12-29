@@ -28,22 +28,14 @@ function Layout({ children }) {
       {
         href: '/list',
         title: 'Create a Room',
-      },
-      {
-        href: '/room',
-        title: 'Join a Room',
-      },
+      }
     ];
      if (room !== null ) {
       menuItems = [
         {
           href: '/list',
           title: 'Your Room',
-        },
-        {
-          href: '/room',
-          title: 'Join a Room',
-        },
+        }
       ];
 
       
