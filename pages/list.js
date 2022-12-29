@@ -9,7 +9,7 @@ export default function ListPage() {
   return (
     <div>
       <Head>
-        <title>Testing Auth</title>
+        <title> Zuum, Room List</title>
       </Head>
       
       <RoomList/>

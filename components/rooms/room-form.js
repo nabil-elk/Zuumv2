@@ -40,7 +40,7 @@ function Room() {
   return fetch(`http://localhost:3000/api/rooms/roomId`)
   
   .then((res) => res.json())
-  .then((data) => setCounts(data));
+  .then((data) => setCounts(data)).then((data)=> console.log(data));
 
   
 }
@@ -81,8 +81,24 @@ function Room() {
            
         }
       }).then((res) => res.json())
-      .then((data) => setRooms(data));
-     
+      .then((data) =>
+      {
+        return fetch("http://localhost:3000/api/rooms/room", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 
+            roomId: data.id, 
+            name: roomName, 
+            description: "description",
+            userId:  session.user.email
+          }),
+        })
+      }
+      );
+      
+      router.push("/")
     };
 
     // save room in prisma
@@ -91,13 +107,13 @@ function Room() {
       const roomId = rooms.id;
          
 
-      const data = await fetch("http://localhost:3000/api/rooms/room", {
+      const datax = await fetch("http://localhost:3000/api/rooms/room", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-          roomId: roomId, 
+          roomId: data.id, 
           name: roomName, 
           description: "description",
           userId:  session.user.email
@@ -115,7 +131,7 @@ function Room() {
         if (roomName !== "") {
          
          await createRoom();
-         await saveRoom();
+         
          
          
   
