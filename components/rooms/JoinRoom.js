@@ -162,25 +162,33 @@ function JoinRoom() {
             placeholder="Insert your Name"
             value={inputValues}
             onChange={handleInputChange}
-            className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
+            className=" relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            required
           />
         <input
             type="text"
             placeholder="Paste a Room ID"
             value={RoomId}
             onChange={getRoom}
-            className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
+            className=" relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            required
           />
-      <button onClick={handleSubmit}
-        className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md"  
-      >
-        Join
-      </button>
-      <button onClick={sendBack}
-        className="flex-1 text-white bg-red-400 py-3 px-5 rounded-md"  
-      >
-        Back
-      </button>
+                 <div>
+              <button onClick={handleSubmit}
+                type="submit"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+               
+                Join a Room
+              </button>
+              <button onClick={sendBack}
+                className="group  mt-5 relative flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              >
+               
+                Back 
+              </button>
+              
+            </div>
     </div>
     </div>
 

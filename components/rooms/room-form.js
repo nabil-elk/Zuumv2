@@ -125,24 +125,34 @@ function Room() {
      
   return (
     
+    <div className=" h-screen flex justify-center items-center bg-slate-100">
+      
   
-    <div className="  flex justify-center items-center bg-slate-100">
-    <div className=" flex flex-col gap-6 mt-8">
-      <input
-        type="text"
-        placeholder="Room Name"
-        value={roomName}
-        onChange={handleRoomChange}
-        className=" focus:outline-none flex-1 px-2 py-3 rounded-md text-black border-2 border-cyan-400"
-      required/>
-      <button
-        className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md"
-        onClick={handleSubmit}
-      >
-        Create Room
-      </button>
-    </div>
-  </div>
+
+    <div className=" flex flex-col gap-4">
+    <input
+                type="text"
+                      placeholder="Room Name"
+                      value={roomName}
+                      onChange={handleRoomChange}
+           
+                className=" relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required
+              />
+            
+                     <div>
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                  
+                    Create a Room
+                  </button>
+                  
+                </div>
+        </div>
+        </div>
  
   );
 }

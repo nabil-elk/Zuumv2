@@ -53,10 +53,10 @@ function RoomList() {
 
 
     return (
-      <div className=" h-screen flex justify-center items-center bg-slate-100">
+      <div className="min-h-full">
          
 
-    <div className="px-6 py-4">
+
       {room === null ? (
         <>
        <RoomForm/>
@@ -64,43 +64,65 @@ function RoomList() {
         </>
       ):(
         <>
-         <div className="max-w-sm rounded overflow-hidden shadow-lg border-cyan-100 ">
-        <div className="font-bold text-xl mb-2">Room Name: {room.name}</div>
-        <p className="text-gray-700 text-base">
-      Room Id: {room.roomId}
-      </p>
-      <CopyToClipboard
+           <header className="bg-white shadow">
+            
+            <div className=" mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">Room List</h1>
+              
+            </div>
+            
+            
+          </header>
+          <main>
+            <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+              {/* Replace with your content */}
+              <div className="px-4 py-6 sm:px-0">
+              <table className="min-w-full">
+          <thead className="border-b bg-gray-200">
+            <tr>
+             
+              <th scope="col" className="text-m font-medium text-gray-900 px-6 py-4 text-left">
+               Room Name
+              </th>
+              <th scope="col" className="text-m font-medium text-gray-900 px-6 py-4 text-left">
+                Room Id
+              </th>
+              <th scope="col" className="text-m font-medium text-gray-900 px-6 py-4 text-left">
+                Owner
+              </th>
+              <th scope="col" className="text-m font-medium text-gray-900 px-6 py-4 text-left">
+                </th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b">
+             
+              <td className="text-m text-gray-900 font-light px-6 py-4 whitespace-nowrap">{room.name}</td>
+              <td className="text-m text-gray-900 font-light px-6 py-4 whitespace-nowrap">{room.roomId}</td>
+               <td className="text-m text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+               {room.userEmail}
+              </td>
+               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+               <CopyToClipboard
      text= {room.roomId}
-     onCopy={() => alert("Copied")}>
-       <button className="text-white bg-blue-300 py-1 px-1 rounded-md">Click to Copy</button>
+     onCopy={() => alert("Room Id Copied")}>
+       <button className="text-white bg-indigo-400 hover:bg-indigo-300 py-1 px-1 rounded-md">Copy</button>
      </CopyToClipboard>
-     
-      <div className="px-6 pt-4 pb-2">
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Owner: {room.userEmail}</span>
-      </div>
-     
-      </div>
-      <div className="mt-5 flex justify-center items-center">
-     <Link href="/room">
-     <button
-        className="flex-1 text-white bg-cyan-500 py-3 px-10 rounded-md "
-      >
-        Join a Room
-      </button>
-     </Link>
-     </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+               
+              </div>
+              {/* /End replace */}
+            </div>
+          </main>
         </>
-        
       )}
-     
-    
+
     </div>
-    </div>
-  
     
-     
-        
-        
     )
 }
 
