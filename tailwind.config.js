@@ -6,7 +6,10 @@
      extend: {},
    },
    variants: {
-     extend: {},
+     extend: {
+      
+     },
    },
    plugins: [],
+   
  }

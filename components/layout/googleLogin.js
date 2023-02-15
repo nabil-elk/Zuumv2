@@ -2,8 +2,9 @@
 import { useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useRouter } from 'next/router';
+import  useRouter from 'next/router';
 import {signIn,useSession} from "next-auth/react"
+import Image from 'next/image';
 
 
    
@@ -118,7 +119,7 @@ export default function Login() {
         </div>
       </div>
       <div className="w-full px-3 mb-12 lg:w-1/2 order-0 lg:order-1 lg:mb-0">
-        <img
+        <Image
           className="mx-auto sm:max-w-sm lg:max-w-full"
           src="https://cdn.devdojo.com/tails/images/nPaBm3tBHhRYGX92RKxfzgp17QpOominUrpxTT6I.png"
           alt="feature image"
