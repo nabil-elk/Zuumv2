@@ -99,7 +99,7 @@ export default function Login() {
             Jam-packed with all the tools you need to succeed!
           </h2>
           <p className="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">
-            It's never been easier to build a business of your own. Our tools
+            It&apos;s never been easier to build a business of your own. Our tools
             will help you with the following:
           </p>
           <ul className="">
