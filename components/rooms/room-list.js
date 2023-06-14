@@ -75,7 +75,7 @@ function RoomList() {
           </header>
           <main>
             <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-              {/* Replace with your content */}
+              {/* Room List if user has one */}
               <div className="px-4 py-6 sm:px-0">
               <table className="min-w-full">
           <thead className="border-b bg-gray-200">
@@ -115,7 +115,7 @@ function RoomList() {
         </table>
                
               </div>
-              {/* /End replace */}
+              {/* /End of it */}
             </div>
           </main>
         </>

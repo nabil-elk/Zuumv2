@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import  useRouter from 'next/router';
+import { useRouter } from 'next/router'
 import {signIn,useSession} from "next-auth/react"
 import Image from 'next/image';
 
@@ -123,6 +123,9 @@ export default function Login() {
           className="mx-auto sm:max-w-sm lg:max-w-full"
           src="https://cdn.devdojo.com/tails/images/nPaBm3tBHhRYGX92RKxfzgp17QpOominUrpxTT6I.png"
           alt="feature image"
+          width="400"
+          height="400"
+
         />
       </div>
     </div>

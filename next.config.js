@@ -4,4 +4,23 @@ const nextConfig = {
   
 }
 
-module.exports = nextConfig
+module.exports = 
+{
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.devdojo.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: "lh3.googleusercontent.com",
+        port: '',
+        
+      }
+    ],
+
+  },
+}
+nextConfig
